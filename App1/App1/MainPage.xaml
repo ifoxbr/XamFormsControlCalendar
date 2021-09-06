@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
+             xmlns:viewModels="clr-namespace:App1"
+             x:Class="App1.MainPage"
+             Title="Testando Calendar">
+
+    <ContentPage.BindingContext>
+        <viewModels:MainViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout>
+        <!-- esse é o cara:  https://github.com/lubiepomaranczki -->
+        <!-- https://github.com/lubiepomaranczki/XamForms.Controls.Calendar -->
+        <!-- https://githubmemory.com/repo/luccasclezar/XamForms.Controls.Calendar -->
+        <!-- https://github.com/rebeccaXam/XamForms.Controls.Calendar/blob/master/XamForms.Controls.Calendar/Calendar.Selected.cs -->
+        <controls:Calendar x:Name="XALENDAR"
+            Padding="10,0,10,0" 
+                               SelectedDates="{Binding DatasSelecionadas, Mode=TwoWay}" 
+                               SelectedDate="{Binding Date}"
+                               SpecialDates="{Binding Attendances}"
+                               DateCommand="{Binding DateChosen}"
+                               StartDay="Sunday" 
+                               MultiSelectDates="True"
+                               SelectedBackgroundColor="LightBlue"
+                               SelectedBorderColor="Yellow"
+                               SelectedBorderWidth="1"
+                               SelectedFontSize="14"
+                               SelectedFontAttributes="Bold"
+                               DatesFontSize="14"
+                               MinDate="{Binding DataInicialMinima}"
+                               MonthNavigationShow="True"
+                               WeekdaysShow="True"
+                               WeekdaysBackgroundColor="white"
+                               WeekdaysTextColor="Black"
+                               DisabledBackgroundColor="orange"
+                               DisabledBorderColor="Yellow"
+                               DisabledBorderWidth="1"
+                               DisabledTextColor="white"
+                                               DisabledFontSize="14"
+                                />
+
+        <Button Text="Retirar" Command="{Binding LerCommand}"/>
+
+    </StackLayout>
+
+</ContentPage>
