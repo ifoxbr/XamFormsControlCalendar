@@ -9,6 +9,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using System.Linq;
 using System.Threading.Tasks;
+using XamForms.Controls;
 
 namespace App1
 {
@@ -21,6 +22,7 @@ namespace App1
         public MainViewModel()
         {
             DatasSelecionadas = new ObservableCollection<DateTime>();
+            Attendances = new ObservableCollection<SpecialDate>();
 
             LerCommand = new Command(() => ExecuteLerCommand());
         }
@@ -50,8 +52,8 @@ namespace App1
             int count = DatasSelecionadas.Count();
         }
 
-        private ObservableCollection<DateTime> _atdc;
-        public ObservableCollection<DateTime> Attendances
+        private ObservableCollection<SpecialDate> _atdc;
+        public ObservableCollection<SpecialDate> Attendances
         {
             get { return _atdc; }
             set
